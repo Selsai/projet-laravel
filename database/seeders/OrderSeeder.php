@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -13,8 +12,7 @@ class OrderSeeder extends Seeder
         $user = User::where('email', 'test@example.com')->first();
         
         if ($user) {
-            Order::create([
-                'user_id' => $user->id,
+            $user->orders()->create([
                 'amount' => 50.00,
                 'status' => 'paid'
             ]);
