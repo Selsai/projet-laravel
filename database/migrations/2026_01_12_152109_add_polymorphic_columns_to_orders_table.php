@@ -21,13 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-       Schema::create('orders', function (Blueprint $table) {
-    $table->id();
-    $table->decimal('amount', 10, 2);
-    $table->string('status');
-    $table->foreignId('user_id')->constrained()->onDelete('cascade');
-    $table->morphs('orderable'); // Crée orderable_id et orderable_type
-    $table->timestamps();
-});
+     Schema::table('orders', function (Blueprint $table) {
+            $table->dropMorphs('orderable');
+        });
     }
 };
