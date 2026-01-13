@@ -12,8 +12,6 @@ class Order extends Model
         'amount',
         'status',
         'user_id',
-        'orderable_id',
-        'orderable_type',
     ];
 
     protected $casts = [
